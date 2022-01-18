@@ -9,6 +9,14 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+const db = require('./postgre')
+
+app.get('/getMemo', db.getMemo)
+app.get('/getMemo/:word', db.getMemoByWord)
+app.post('/createMemo', db.createMemo)
+app.put('/updateMemo',db.updateMemo)
+app.delete('/deleteMemo',db.deleteMemo)
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
